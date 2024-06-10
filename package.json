@@ -1,0 +1,15 @@
+{
+    "name": "inventori_barang",
+    "version": "1.0.0",
+    "description": "aplikasi inventori barang tugas ukm mci",
+    "main": "index.js",
+    "scripts": {
+        "tailwind": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Rofia",
+    "license": "ISC",
+    "devDependencies": {
+        "tailwindcss": "^3.4.4"
+    }
+}
