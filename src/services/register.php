@@ -1,9 +1,9 @@
 <?php
 
-require_once '../config/conn.php';
+require_once '../connfig/conn.php';
 
 // http://localhost/app_inventori_barang/src/register/
-$href = "document.location.href = '" . BASEURL . "/register.php'";
+$href = "document.location.href = '" . BASEURL . "/view/register.php'";
 
 // cek apakah tombol register ditekan
 if (isset($_POST['register'])) {
@@ -15,8 +15,8 @@ if (isset($_POST['register'])) {
     $role = $_POST['roles'];
 
     // cek email apakah telah tersedia di database
-    $sql = "SELECT email FROM users WHERE email = '$email'";
-    $result = $connection->query($sql);
+    $sql = "SELECT email FROM user WHERE email = '$email'";
+    $result = $conn->query($sql);
     if ($result->num_rows) {
         echo "
         <script>
@@ -40,19 +40,18 @@ if (isset($_POST['register'])) {
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan data ke database
-    $sql = "INSERT INTO users VALUES (
+    $sql = "INSERT INTO user VALUES (
         NULL,
         '$name',
         '$email',
         '$password',
-        '$password_konfirmasi',
-        '$roles',
+        '$role',
         NOW(),
         NOW())
     ";
 
     // cek apakah data berhasil masuk
-    if ($connection->query($sql)) {
+    if ($conn->query($sql)) {
         echo "
         <script>
             alert('User berhasil registrasi')

@@ -1,3 +1,14 @@
+<?php
+
+require_once '../connfig/conn.php';
+
+if (isset($_SESSION['is_login'])) {
+    header('Location: ' . BASEURL . '/view/dashboard.php');
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +18,11 @@
 </head>
 <body>
     <h1>Register Akun</h1>
-    <form action="services/register.php" method="post">
+    <form action="../services/register.php" method="post">
         <label for="Name">Name</label>
-        <input type="text" name="Name" id="Name"><br>
+        <input type="text" name="name" id="name"><br>
         <label for="Email">Email</label>
-        <input type="email" name="Email" id="Email"><br>
+        <input type="email" name="email" id="Email"><br>
         <label for="password">Password</label>
         <input type="Password" name="password" id="password"><br>
         <label for="password-konfirmasi">Password konfirmasi</label>

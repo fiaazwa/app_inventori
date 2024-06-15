@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 class="text-red-700">hello</h1>
-    <a href="./register.php">register</a>
+    <a href="./register.php">Register</a>
+    <a href="./login.php">login</a>
 </body>
 </html>
