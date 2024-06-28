@@ -1,3 +1,24 @@
+<?php
+
+require_once '../connfig/conn.php';
+require_once '../services/user.php';
+
+if (!isset($_SESSION['is_login'])) {
+    header('Location:' . BASEURL . '/view/login.php');
+    exit;
+}
+
+if (isset($_GET['id'])) {
+    delete($_GET['id']);
+    echo "
+    <script>
+        alert('User berhasil dihapus')
+        document.location.href = './dashboard.php'
+    </script>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +29,11 @@
 </head>
 
 <body>
-    <h1>Ini halaman Dashboard</h1>
+
+    <a href="user.php">Users</a>
+    <a href="category.php">Categories</a>
+    <a href="../services/logout.php">Logout</a>
+
 </body>
 
 </html>
