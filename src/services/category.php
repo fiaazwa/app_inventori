@@ -2,21 +2,29 @@
 
 require_once '../connfig/conn.php';
 
-function selectAll()
+function selectAllCategory()
 {
     global $conn;
     $sql = "SELECT * FROM categories";
     return $conn->query($sql);
 }
 
-function delete($id)
+function selectCategoriById($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM categories WHERE id = $id";
+    $result = $conn->query($sql);
+    return $result->fetch_assoc();
+}
+
+function deleteCategory($id)
 {
     global $conn;
     $sql = "DELETE FROM categories WHERE id = $id";
     return $conn->query($sql);
 }
 
-function create($data)
+function createCategory($data)
 {
     $name = $data['name'];
     $description = $data['description'];
